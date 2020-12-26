@@ -1,0 +1,18 @@
+<h1>CB Profit Tracker</h1>
+<p>Welcome <%= "#{current_user.email}" %></p>
+
+<% if current_user %>
+
+  <section>
+    <div>Total Earnings: <span><%= @current_standings[:net_profit] %></span></div>
+
+    <% @current_standings[:accounts].each do |account| %>
+      <div>
+        <span><%= account[:wallet] %></span>
+        <span><%= account[:difference] %></span>
+      </div>
+    <% end %>
+
+  </section>
+
+<% end %>
