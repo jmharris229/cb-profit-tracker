@@ -22,7 +22,7 @@
 
 /public/assets
 .byebug_history
-docker-compose.yml
+.env.local
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
