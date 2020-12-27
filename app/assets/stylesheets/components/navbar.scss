@@ -1,0 +1,12 @@
+.navbar {
+  height: 4em;
+  background-color: black;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+
+  h1, p {
+    color: white;
+    margin: auto 0;
+  }
+}

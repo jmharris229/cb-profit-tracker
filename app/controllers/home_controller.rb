@@ -39,13 +39,13 @@ class HomeController < ApplicationController
     vested_accounts = client.accounts.select {|a| a['native_balance']['amount'].to_i > 0}
     account_statuses = vested_accounts.map do |account|
       av = account.transactions.map {|t| t['native_amount']['amount'].to_i}.reduce(0, :+)
-      cv = account['native_balance']['amount'] # the value you could trade at
+      cv = account['native_balance']['amount'].to_i # the value you could trade at
 
       {
         amount_vested: av,
         wallet: account['name'].split(" ")[0],
         current_value:  cv,
-        difference: cv.to_i - av.to_i
+        difference: cv - av
       }
     end
 

@@ -1,15 +1,15 @@
-<h1>CB Profit Tracker</h1>
-<p>Welcome <%= "#{current_user.email}" %></p>
-
 <% if current_user %>
 
-  <section>
-    <div>Total Earnings: <span><%= @current_standings[:net_profit] %></span></div>
+  <section class="homepage">
+    <div class="space-between profit-row">
+      <span>Current Net:</span>
+      <span class="<%= @current_standings[:net_profit] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(@current_standings[:net_profit], precision: 0) %></span>
+    </div>
 
     <% @current_standings[:accounts].each do |account| %>
-      <div>
+      <div class="space-between account-row">
         <span><%= account[:wallet] %></span>
-        <span><%= account[:difference] %></span>
+        <span class="<%= account[:difference] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(account[:difference], precision: 0) %></span>
       </div>
     <% end %>
 

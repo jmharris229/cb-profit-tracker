@@ -1,0 +1,23 @@
+@import 'flex';
+
+.homepage {
+  font-size: 2em;
+  padding: .5em;
+
+  .profit-row {
+    padding: .5em 0 1em 0;
+    border-bottom: 3px solid black;
+  }
+
+  .account-row {
+    padding: .5em 0;
+  }
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
