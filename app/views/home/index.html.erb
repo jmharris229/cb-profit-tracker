@@ -1,15 +1,36 @@
 <% if current_user %>
 
   <section class="homepage">
-    <div class="space-between profit-row">
-      <span>Current Net:</span>
-      <span class="<%= @current_standings[:net_profit] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(@current_standings[:net_profit], precision: 0) %></span>
+    <div class="profit-row">
+      <div class="space-between account-row">
+        <span>Amount Vested:</span>
+        <span class="<%= @current_standings[:gross_vested] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(@current_standings[:gross_vested], precision: 0) %></span>
+      </div>
+      <div class="space-between account-row">
+        <span>Vested Growth:</span>
+        <span class="<%= @current_standings[:vested_growth] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(@current_standings[:vested_growth], precision: 0) %></span>
+      </div>
+      <div class="space-between account-row">
+        <span>Current Net:</span>
+        <span class="<%= @current_standings[:net_profit] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(@current_standings[:net_profit], precision: 0) %></span>
+      </div>
+      <div class="space-between account-row">
+        <span>Percent Change:</span>
+        <span class="<%= @current_standings[:percent_change] >= 0 ? "positive" : "negative" %>"><%= @current_standings[:percent_change] %>%</span>
+      </div>
     </div>
 
     <% @current_standings[:accounts].sort_by {|a| a[:wallet]}.each do |account| %>
-      <div class="space-between account-row">
-        <span><%= account[:wallet] %></span>
-        <span class="<%= account[:difference] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(account[:difference], precision: 0) %></span>
+      <div class="account-row">
+        <div class="space-between">
+          <span><%= account[:wallet] %></span>
+          <span class="<%= account[:difference] >= 0 ? "positive" : "negative" %>"><%= number_to_currency(account[:difference], precision: 0) %></span>
+        </div>
+        <div class="sub-row">
+          <span><%= number_to_currency(account[:amount_vested], precision: 0) %></span> /
+          <span><%= number_to_currency(account[:current_value], precision: 0) %></span> /
+          <span><%= account[:percent_change] %>%</span>
+        </div>
       </div>
     <% end %>
 
