@@ -10,6 +10,6 @@ if you want to use this for yourself...
 3. Create a .env.local file and add export variables for the PG_PASSWORD, CB_KEY, CB_SECRET
 4. run `docker-compose up`
 
-screen shot:
+screen shot: (NOTE: this is only test data, for privacy purposes)
 
 ![](./app/assets/images/public_screenshot.png)
