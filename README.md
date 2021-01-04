@@ -9,3 +9,7 @@ if you want to use this for yourself...
 2. Set up a Coinbase account and register an API KEY
 3. Create a .env.local file and add export variables for the PG_PASSWORD, CB_KEY, CB_SECRET
 4. run `docker-compose up`
+
+screen shot:
+
+![](./app/assets/images/public_screenshot.png)
